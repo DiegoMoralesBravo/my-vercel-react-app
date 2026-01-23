@@ -1,10 +1,11 @@
 {
-  "buildCommand": "npm i -g npm@10 && npm install && npm run build",
+  "installCommand": "npm i -g npm@10 && npm ci --prefer-offline --no-audit --no-fund",
+  "buildCommand": "npm run build",
   "functions": {
     "api/**": {
+      "runtime": "nodejs20.x",
       "memory": 128,
       "maxDuration": 10
     }
   }
 }
-
