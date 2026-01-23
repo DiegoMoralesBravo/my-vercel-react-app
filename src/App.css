@@ -1,6 +1,14 @@
-.App {
-  text-align: center;
+:root{
+  --bg: #f7f3ea;           /* bone */
+  --panel: #ffffff;        /* white card */
+  --text: #1b1b1b;         /* near black */
+  --muted: #5e5e5e;        /* gray */
+  --accent: #2b6cb0;       /* formal blue */
+  --accent-2: #2f855a;     /* formal green */
+  --border: #e4dfd4;       /* light bone border */
 }
+
+.App { text-align: left; background: var(--bg); min-height: 100vh; color: var(--text); }
 
 .App-logo {
   height: 40vmin;
@@ -13,26 +21,31 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+/* Formal banner */
+.Banner { position: sticky; top:0; background: var(--panel); border-bottom: 1px solid var(--border); }
+.Banner-inner { max-width: 1100px; margin: 0 auto; padding: .75rem 1rem; display:flex; align-items:center; gap:1rem; }
+.Brand { font-weight:700; font-size: 1.125rem; letter-spacing: .2px; }
+.Nav { margin-left:auto; display:flex; gap:.5rem; }
+.NavBtn { border:1px solid var(--border); background: #f3efe6; color: var(--text); padding:.5rem .9rem; border-radius: 10px; cursor:pointer; }
+.NavBtn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
 
-.App-link {
-  color: #61dafb;
-}
+/* Generic Buttons */
+.PrimaryBtn { background: var(--accent); color:#fff; border:none; border-radius:10px; padding:.6rem 1rem; font-weight:600; cursor:pointer }
+.PrimaryBtn:active { transform: translateY(1px) }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+/* Sections */
+.Section { padding: 16px; display:grid; gap: 12px; max-width: 900px; margin: 0 auto; }
+.Summary { background: var(--panel); border:1px solid var(--border); border-radius:12px; padding: .75rem 1rem; }
+.SubmitRow { display:flex; gap:8px; align-items:center; justify-content:flex-start }
+.FieldLabel { color: var(--muted) }
+.FieldInput { border:1px solid var(--border); padding:.5rem .75rem; border-radius: 10px; }
+
+/* Old CRA demo removed */
+
+/* Tabs */
+.Tabs { display:flex; gap:.5rem; justify-content:center; margin: 1rem 0; }
+.TabBtn { border:none; border-radius: 10px; padding:.6rem 1rem; font-weight:600; cursor:pointer; background:#222a53; color:#eaf0ff }
+.TabBtn.active { background:#6ea8fe; color:#0b1021 }
+
+/* Writing textarea styles reuse quiz theme */
+.writing-prompt, .writing-text { width:100%; background:#0e1531; color:#eaf0ff; border:1px solid #2a315b; border-radius:12px; padding:.75rem; margin:.25rem 0 1rem; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; }
