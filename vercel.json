@@ -1,0 +1,10 @@
+{
+  "buildCommand": "npm i -g npm@10 && npm install && npm run build",
+  "functions": {
+    "api/**": {
+      "memory": 128,
+      "maxDuration": 10
+    }
+  }
+}
+
