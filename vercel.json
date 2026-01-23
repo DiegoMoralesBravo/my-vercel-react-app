@@ -1,8 +1,9 @@
 {
+  "version": 2,
   "installCommand": "npm i -g npm@10 && npm ci --prefer-offline --no-audit --no-fund",
   "buildCommand": "npm run build",
   "functions": {
-    "api/**": {
+    "api/**/*.js": {
       "runtime": "nodejs20.x",
       "memory": 128,
       "maxDuration": 10
