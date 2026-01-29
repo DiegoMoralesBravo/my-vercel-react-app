@@ -1,4 +1,5 @@
 export const QUIZ_DATA = {
+  // Legacy keys
   beginner: [
     {
       id: 'b1',
@@ -85,3 +86,9 @@ export const QUIZ_DATA = {
   ]
 };
 
+// CEFR aliases so new level names work immediately
+QUIZ_DATA.A1 = QUIZ_DATA.beginner;
+QUIZ_DATA.A2 = QUIZ_DATA.intermediate;
+QUIZ_DATA.B1 = QUIZ_DATA.advanced;
+// Temporary: duplicate B1 set for B2 until you provide B2 questions
+QUIZ_DATA.B2 = QUIZ_DATA.advanced;

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './quiz/Quiz.css';
 
 export default function Writing({ onStateChange = () => {} }) {
-  const [prompt, setPrompt] = useState('Write a short report about your last vacation (150-200 words).');
+  const prompt = 'Write a short report about your last vacation (150-200 words).';
   const [text, setText] = useState('');
 
   useEffect(() => {
@@ -19,7 +19,8 @@ export default function Writing({ onStateChange = () => {} }) {
             id="writing-prompt"
             className="writing-prompt"
             value={prompt}
-            onChange={(e) => setPrompt(e.target.value)}
+            readOnly
+            aria-readonly="true"
             rows={3}
           />
           <label className="status" htmlFor="writing-text">Your Answer</label>
@@ -37,4 +38,3 @@ export default function Writing({ onStateChange = () => {} }) {
     </div>
   );
 }
-

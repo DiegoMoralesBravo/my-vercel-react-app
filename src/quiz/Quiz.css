@@ -6,6 +6,17 @@
 .controls label{ color:var(--muted) }
 .controls select{ background: #faf6ed; color: var(--text); border:1px solid var(--border); padding:.5rem .75rem; border-radius:8px; }
 .controls button{ margin-left:auto }
+.LevelBar{ display:grid; grid-template-columns: repeat(4, 1fr); gap:.5rem; width:100%; }
+.LevelSeg{ display:flex; align-items:center; justify-content:center; border:1px solid var(--border); border-radius:10px; padding:.5rem 0; font-weight:700; letter-spacing:.3px; opacity:.6; transition:opacity .15s ease, transform .1s ease }
+.LevelSeg.done{ opacity:1 }
+.LevelSeg.current{ opacity:1; outline: 2px solid rgba(0,0,0,0.08) }
+.LevelSeg:hover{ transform: translateY(-1px) }
+.LevelSegLabel{ font-size:.95rem }
+.LevelBadge{ display:none }
+.level-A1{ background:#e8f2ff; border-color:#c8ddff; }
+.level-A2{ background:#e9fff1; border-color:#c8f1d8; }
+.level-B1{ background:#fff4e6; border-color:#f5d7b3; }
+.level-B2{ background:#f4e8ff; border-color:#dfccff; }
 .quiz{ margin-top:1rem; background:var(--panel); border:1px solid var(--border); border-radius:12px; padding:1rem; }
 .question{ border-bottom:1px dashed var(--border); padding:1rem 0; }
 .question:last-child{ border-bottom:none }

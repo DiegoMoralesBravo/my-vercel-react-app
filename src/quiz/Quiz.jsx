@@ -3,9 +3,10 @@ import './Quiz.css';
 import { QUIZ_DATA } from './data';
 
 const levels = [
-  { value: 'beginner', label: 'Beginner' },
-  { value: 'intermediate', label: 'Intermediate' },
-  { value: 'advanced', label: 'Advanced' },
+  { value: 'A1', label: 'A1' },
+  { value: 'A2', label: 'A2' },
+  { value: 'B1', label: 'B1' },
+  { value: 'B2', label: 'B2' },
 ];
 
 export default function Quiz({ onStateChange = () => {}, sequential = true }) {
@@ -85,11 +86,19 @@ export default function Quiz({ onStateChange = () => {}, sequential = true }) {
   return (
     <div className="quiz-app">
       <div className="container">
-        <section className="controls" aria-label="Test Controls">
-          <div className="LevelBadge">Level: {levelLabel}</div>
-          {sequential && (
-            <div className="Progress">{levelIndex + 1} / {levels.length}</div>
-          )}
+        <section className="controls" aria-label="Level Progress">
+          <div className="LevelBar" role="list" aria-label={`Level ${levelLabel} ${levelIndex + 1} of ${levels.length}`}>
+            {levels.map((l, idx) => (
+              <div
+                key={l.value}
+                role="listitem"
+                className={`LevelSeg level-${l.value} ${idx < levelIndex ? 'done' : idx === levelIndex ? 'current' : 'todo'}`}
+                aria-current={idx === levelIndex ? 'step' : undefined}
+              >
+                <span className="LevelSegLabel">{l.label}</span>
+              </div>
+            ))}
+          </div>
         </section>
 
         <section className="quiz" aria-live="polite">

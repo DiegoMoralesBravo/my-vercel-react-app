@@ -2,17 +2,19 @@ import './App.css';
 import React, { useMemo, useState } from 'react';
 import Quiz from './quiz/Quiz';
 import Writing from './Writing';
+import Speaking from './Speaking';
 
 const tabs = [
   { key: 'general', label: 'General Quiz' },
   { key: 'writing', label: 'Writing' },
-  { key: 'other', label: 'Other' },
+  { key: 'speaking', label: 'Speaking' },
 ];
 
 function App() {
   const [active, setActive] = useState('general');
   const [quizState, setQuizState] = useState(null);
   const [writingState, setWritingState] = useState(null);
+  const [speakingState, setSpeakingState] = useState(null);
   const [student, setStudent] = useState('');
 
   const summary = useMemo(() => {
@@ -44,11 +46,7 @@ function App() {
 
       {active === 'general' && <Quiz onStateChange={setQuizState} />}
       {active === 'writing' && <Writing onStateChange={setWritingState} />}
-      {active === 'other' && (
-        <div className="Section">
-          <p>Other test section (coming soon).</p>
-        </div>
-      )}
+      {active === 'speaking' && <Speaking onStateChange={setSpeakingState} />}
 
       <div className="Section">
         {summary && <div className="Summary">{summary}</div>}
@@ -59,6 +57,7 @@ function App() {
             const payload = {
               quiz: quizState,
               writing: writingState,
+              speaking: speakingState,
               meta: { student }
             };
             try{

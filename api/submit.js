@@ -9,7 +9,7 @@ module.exports = async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
   try {
-    const { quiz, writing, meta } = req.body || {};
+    const { quiz, writing, speaking, meta } = req.body || {};
 
     // Build email content
     const lines = [];
@@ -42,6 +42,13 @@ module.exports = async function handler(req, res) {
       if (writing.prompt) lines.push(`Prompt: ${writing.prompt}`);
       lines.push(`\nSubmission:\n${writing.text || ''}`);
       lines.push(`\nWord count: ${writing.wordCount ?? ''}`);
+    }
+
+    if (speaking) {
+      lines.push('\n## Speaking');
+      if (speaking.platform) lines.push(`Platform: ${speaking.platform}`);
+      if (speaking.link) lines.push(`Link: ${speaking.link}`);
+      if (speaking.notes) lines.push(`Notes: ${speaking.notes}`);
     }
 
     const html = lines.map(l => `<div>${l.replace(/</g, '&lt;')}</div>`).join('');
