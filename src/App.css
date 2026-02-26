@@ -41,6 +41,13 @@
 .FieldLabel { color: var(--muted) }
 .FieldInput { border:1px solid var(--border); padding:.5rem .75rem; border-radius: 10px; }
 
+/* Access Gate */
+.GateWrap { min-height: 70vh; display:flex; align-items:center; justify-content:center; }
+.GateCard { background: var(--panel); border:1px solid var(--border); border-radius: 12px; padding: 24px; width: 100%; max-width: 480px; display:grid; gap: 12px; }
+.GateTitle { margin: 0; }
+.GateHint { color: var(--muted); margin: 0 0 8px; }
+.DangerText { color: #b42318; }
+
 /* Old CRA demo removed */
 
 /* Tabs */

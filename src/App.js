@@ -3,6 +3,7 @@ import React, { useMemo, useState } from 'react';
 import Quiz from './quiz/Quiz';
 import Writing from './Writing';
 import Speaking from './Speaking';
+import AccessGate from './AccessGate';
 
 const tabs = [
   { key: 'general', label: 'General Quiz' },
@@ -16,6 +17,7 @@ function App() {
   const [writingState, setWritingState] = useState(null);
   const [speakingState, setSpeakingState] = useState(null);
   const [student, setStudent] = useState('');
+  const [granted, setGranted] = useState(false);
 
   const summary = useMemo(() => {
     if (!quizState) return null;
@@ -24,6 +26,14 @@ function App() {
     const lines = seq.map(s => `${s.levelLabel}: ${s.score.correct}/${s.score.total} (${s.score.pct}%)`);
     return `Progress — ${lines.join(' | ')}`;
   }, [quizState]);
+
+  if (!granted) {
+    return (
+      <div className="App">
+        <AccessGate onSuccess={()=>setGranted(true)} />
+      </div>
+    );
+  }
 
   return (
     <div className="App">
