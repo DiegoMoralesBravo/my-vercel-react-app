@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "installCommand": "npm i -g npm@10 && npm ci --prefer-offline --no-audit --no-fund",
+  "installCommand": "npm i -g npm@10 && npm install --no-audit --no-fund",
   "buildCommand": "npm run build",
   "functions": {
     "api/**/*.js": {
